@@ -72,6 +72,7 @@ import { AutocompleteComponent } from './demo/components/autocomplete/autocomple
 import { Ng2HighchartsModule } from 'ng2-highcharts';
 
 import { StockQuoteComponent } from './stock-quote/stock-quote.component';
+import { StockQuotesService } from './stock-quote/stock-quote.service';
 
 const perfectScrollbarConfig: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -166,7 +167,8 @@ const sortablejsConfig: SortablejsOptions = {
     BreadcrumbService,
     DynamicMenuService,
     D3ChartService,
-    MailService
+    MailService,
+    StockQuotesService
   ],
   bootstrap: [AppComponent]
 })
