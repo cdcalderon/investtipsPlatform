@@ -1,0 +1,49 @@
+<div fxLayout="row" fxLayoutAlign="center center" style="margin: 24px 0;">
+  <md-card fxFlex="90%">
+    <md-card-title>Material Autocomplete</md-card-title>
+
+    <md-divider></md-divider>
+
+    <md-card-content fxLayout="column">
+
+      <div fxLayout="column" fxLayout.gt-md="row" fxLayoutAlign="start stretch" fxLayoutAlign.gt-md="start start" style="margin: 24px 0">
+        <div fxFlex fxFlex.gt-md="30%" style="margin-right: 24px;">
+          <div fxLayout="column">
+            <h3>Autocomplete</h3>
+            <h4>&lt;md-autocomplete&gt;</h4>
+            <p>MdAutocomplete can be used to allow for quick selection of predictable entities.</p>
+          </div>
+        </div>
+        <div class="demo-tabs mat-elevation-z2" fxFlex>
+          <md-tab-group>
+            <md-tab label="PREVIEW">
+              <div class="demo-preview" fxLayout="row" fxLayoutAlign="center center">
+                <md-card fxFlex="80%" fxFlex.sm="90%">
+                  <md-card-content fxLayout="column" fxLayoutAlign="center center">
+                    <md-input-container>
+                        <input type="text" mdInput name="autocomplete" [mdAutocomplete]="auto" placeholder="Your favorite fruit">
+                    </md-input-container>
+
+                    <md-autocomplete #auto="mdAutocomplete">
+                      <md-option *ngFor="let option of options" [value]="option">
+                        {{ option }}
+                      </md-option>
+                    </md-autocomplete>
+
+                    Alpha version - caution - release coming soon!
+                  </md-card-content>
+                </md-card>
+              </div>
+            </md-tab>
+            <md-tab label="HTML">
+              <code [innerHTML]="getEscaped(autocompleteHTML)" msHighlight class="html"></code>
+            </md-tab>
+          </md-tab-group>
+        </div>
+      </div>
+
+    </md-card-content>
+
+  </md-card>
+</div>
+
