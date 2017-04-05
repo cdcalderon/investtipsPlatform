@@ -44,10 +44,10 @@ const routes: Routes = [
     path: 'forgot-password',
     component: ForgotPasswordComponent
   },
-  {
-    path: 'stockquote',
-    component: StockQuoteComponent
-  },
+  // {
+  //   path: 'stockquote',
+  //   component: StockQuoteComponent
+  // },
   {
     path: '',
     component: AdminComponent,
@@ -55,6 +55,10 @@ const routes: Routes = [
       {
         path: '',
         component: DashboardComponent,
+      },
+      {
+        path: 'stockquote',
+        component: StockQuoteComponent
       },
       {
         path: 'apps/inbox',

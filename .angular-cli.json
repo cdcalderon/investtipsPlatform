@@ -35,7 +35,11 @@
 
         "../node_modules/highcharts/highstock.js",
         "../node_modules/highcharts/modules/exporting.js",
-        "../node_modules/highcharts/modules/offline-exporting.js"
+        "../node_modules/highcharts/modules/offline-exporting.js",
+
+        "../src/assets/charting_library/charting_library.min.js"
+
+
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

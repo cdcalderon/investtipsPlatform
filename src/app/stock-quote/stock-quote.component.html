@@ -1,12 +1,28 @@
-<p>
-  stock-quote works! carlos
-</p>
 
-<div [ng2-highstocks]="chartStock" class="graph"></div>
 
-<div [ng2-highcharts]="chartBar" class="graph"></div>
+<div>
+  Stock Symbol: <input type="text" [(ngModel)]="stockSymbol"/>
+</div>
+<div>
+  From: <input type="text" [(ngModel)]="fromDate"/>
+  To: <input type="text" [(ngModel)]="toDate"/> <button (click)="getStockAnalisys()">Send</button>
+</div>
+
+<div style="height: 300px !important;">
+  <div id="tv_chart_container"></div>
+</div>
+
+
+<!--<div [ng2-highstocks]="chartStock" class="graph"></div>-->
+
+<!--<div [ng2-highcharts]="chartBar" class="graph"></div>-->
 
 <!--<div [ng2-highcharts]="chartStock" class="graph"></div>-->
+
+<!--<div class="col-xl-6 col-lg-12 col-md-12 col-xs-12" id="myWidgetContainer"></div>-->
+
+
+
 
 
 

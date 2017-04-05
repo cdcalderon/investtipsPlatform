@@ -1,5 +1,6 @@
 {
   "globalDependencies": {
-    "highcharts": "registry:dt/highcharts#4.2.5+20161025153818"
+    "highcharts": "registry:dt/highcharts#4.2.5+20161025153818",
+    "jquery": "registry:dt/jquery#1.10.0+20170310222111"
   }
 }

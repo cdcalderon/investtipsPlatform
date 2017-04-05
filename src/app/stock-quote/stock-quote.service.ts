@@ -1,5 +1,5 @@
 import { Injectable} from '@angular/core'
-import { Http, Response } from '@angular/http';
+import { Http, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
@@ -14,8 +14,13 @@ export class StockQuotesService {
 
   constructor(private _http: Http) { }
 
-  getStockQuotes(): Observable<IStockQuote[]> {
-    return this._http.get(this._stockEQuotesUrl)
+  getStockQuotes(from: string, to: string, symbol: string): Observable<IStockQuote[]> {
+    let params = new URLSearchParams();
+    params.set('to', to);
+    params.set('from', from);
+    params.set('symbol', symbol);
+
+    return this._http.get(this._stockEQuotesUrl, { search: params })
       .map((response: Response) =>  {
         return <IStockQuote[]> response.json()
       })
