@@ -80,6 +80,10 @@ import { Ng2HighchartsModule } from 'ng2-highcharts';
 import { StockQuoteComponent } from './stock-quote/stock-quote.component';
 import { StockQuotesService } from './stock-quote/stock-quote.service';
 
+import { StockQuoteResolver } from './stock-quote/shared/stock-quote-resolver.service';
+import { TradingviewComponent } from './tradingview/tradingview.component';
+import { ChildComponent } from './child/child.component';
+
 const perfectScrollbarConfig: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
@@ -141,13 +145,17 @@ const sortablejsConfig: SortablejsOptions = {
     CalendarEditComponent,
     ChatComponent,
     AutocompleteComponent,
-    StockQuoteComponent
+    StockQuoteComponent,
+    TradingviewComponent,
+    ChildComponent
 
   ],
   entryComponents: [
     DemoDialog,
     InboxComposeComponent,
-    CalendarEditComponent
+    CalendarEditComponent,
+    ChildComponent,
+    TradingviewComponent
   ],
   imports: [
     CommonModule,
@@ -174,7 +182,8 @@ const sortablejsConfig: SortablejsOptions = {
     DynamicMenuService,
     D3ChartService,
     MailService,
-    StockQuotesService
+    StockQuotesService,
+    StockQuoteResolver
   ],
   bootstrap: [AppComponent]
 })

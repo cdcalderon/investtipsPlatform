@@ -30,6 +30,7 @@ import {CalendarComponent} from "./demo/apps/calendar/calendar.component";
 import {ChatComponent} from "./demo/apps/chat/chat.component";
 import {AutocompleteComponent} from "./demo/components/autocomplete/autocomplete.component";
 import {StockQuoteComponent} from "./stock-quote/stock-quote.component";
+import { StockQuoteResolver } from './stock-quote/shared/stock-quote-resolver.service';
 
 const routes: Routes = [
   {
@@ -58,7 +59,8 @@ const routes: Routes = [
       },
       {
         path: 'stockquote',
-        component: StockQuoteComponent
+        component: StockQuoteComponent,
+        //: {stockQuotes: StockQuoteResolver}
       },
       {
         path: 'apps/inbox',
