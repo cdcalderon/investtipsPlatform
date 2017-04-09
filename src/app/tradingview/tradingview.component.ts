@@ -18,11 +18,11 @@ export class TradingviewComponent implements OnInit {
   renderTradingViewComponent() {
     TradingView.onready(function()
     {
-      var udf_datafeed = new Datafeeds.UDFCompatibleDatafeed("https://demo_feed.tradingview.com");
+      var udf_datafeed = new Datafeeds.UDFCompatibleDatafeed("http://localhost:4000");
 
       let widget = new TradingView.widget({
         fullscreen: true,
-        symbol: 'AAPL',
+        symbol: 'AMZN',
         interval: 'D',
         toolbar_bg: '#f4f7f9',
         container_id: "tv_chart_container",
@@ -34,17 +34,20 @@ export class TradingviewComponent implements OnInit {
         disabled_features: ["save_chart_properties_to_local_storage", "volume_force_overlay"],
         enabled_features: ["move_logo_to_main_pane", "study_templates"],
         overrides: {
-          "mainSeriesProperties.style": 0,
-          "symbolWatermarkProperties.color" : "#944",
-          "volumePaneSize": "tiny"
+          "volumePaneSize": "tiny",
+          "paneProperties.background": "#222222",
+          "paneProperties.vertGridProperties.color": "#454545",
+          "paneProperties.horzGridProperties.color": "#454545",
+          "symbolWatermarkProperties.transparency": 90,
+          "scalesProperties.textColor" : "#AAA"
         },
         studies_overrides: {
-          "volume.volume.color.0": "#00FFFF",
-          "volume.volume.color.1": "#0000FF",
+          "volume.volume.color.0": "#ff252d",
+          "volume.volume.color.1": "#36ff19",
           "volume.volume.transparency": 70,
-          "volume.volume ma.color": "#FF0000",
+          "volume.volume ma.color": "#f9fffd",
           "volume.volume ma.transparency": 30,
-          "volume.volume ma.linewidth": 5,
+          "volume.volume ma.linewidth": 1,
           "volume.show ma": true,
           "bollinger bands.median.color": "#33FF88",
           "bollinger bands.upper.linewidth": 7
@@ -75,14 +78,16 @@ export class TradingviewComponent implements OnInit {
 
       widget.onChartReady(function() {
 
-        widget.chart().createStudy('Stochastic', false, false, [14, 5, 5], null, {"%d.color" : "#000000", "%k.color" : "#00FF00"});
+        widget.chart().createStudy('Stochastic', false, false, [14, 5, 5], null, {"%d.color" : "#E3FFCA", "%k.color" : "#00FF00"});
 
-        widget.chart().createStudy("Moving Average", false, false, [
+        widget.chart().createStudy('MACD', false, false, [8, 17, "close", 9], null, {"macd.color" : "#00FF00", "signal.color" : "#fffa00", "histogram.color" : "#00F9FF"});
+
+        widget.chart().createStudy("Moving Average", false, true, [
             10
           ], function (guid) {
             console.log(guid);
           },
-          {"plot.color.0" : "#FF0000"}
+          {"plot.color.0" : "#fffa00"}
         );
 
         // draw some simple technical analysis figures using drawings to show how it works

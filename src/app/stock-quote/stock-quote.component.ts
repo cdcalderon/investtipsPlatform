@@ -19,9 +19,6 @@ export class StockQuoteComponent implements OnInit, AfterViewInit {
 
   widget: any;
   flags: any;
-  TradingViewObj: any;
-  DatafeedsObj: any;
-
   stockQuotes: IStockQuote[];
   errorMessage: string;
   chartStock = {};
