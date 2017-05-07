@@ -9,6 +9,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import {SplitButtonModule} from 'primeng/primeng';
+import {GrowlModule} from 'primeng/primeng';
+
+
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './core/sidenav/sidenav.component';
 import { MaterialModule, MdIconRegistry } from "@angular/material";
@@ -83,6 +87,7 @@ import { StockQuotesService } from './stock-quote/stock-quote.service';
 import { StockQuoteResolver } from './stock-quote/shared/stock-quote-resolver.service';
 import { TradingviewComponent } from './tradingview/tradingview.component';
 import { ChildComponent } from './child/child.component';
+import {TradingViewService} from "./tradingview/services/tradingview";
 
 const perfectScrollbarConfig: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -173,7 +178,9 @@ const sortablejsConfig: SortablejsOptions = {
     HighlightModule,
     SortablejsModule,
     CalendarModule.forRoot(),
-    Ng2HighchartsModule
+    Ng2HighchartsModule,
+    SplitButtonModule,
+    GrowlModule
   ],
   providers: [
     SidenavService,
@@ -183,7 +190,8 @@ const sortablejsConfig: SortablejsOptions = {
     D3ChartService,
     MailService,
     StockQuotesService,
-    StockQuoteResolver
+    StockQuoteResolver,
+    TradingViewService
   ],
   bootstrap: [AppComponent]
 })

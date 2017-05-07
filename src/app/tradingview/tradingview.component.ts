@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, AfterViewInit} from '@angular/core';
+import {TradingViewService} from "./services/tradingview";
 
 declare var TradingView: any;
 declare var Datafeeds: any;
@@ -8,11 +9,14 @@ declare var Datafeeds: any;
   templateUrl: './tradingview.component.html',
   styleUrls: ['./tradingview.component.scss']
 })
-export class TradingviewComponent implements OnInit {
-  constructor() {}
+export class TradingviewComponent implements OnInit, AfterViewInit{
+  constructor(private TradingViewService: TradingViewService) {}
 
   ngOnInit() {
+   // this.renderTradingViewComponent();
+
     this.renderTradingViewComponent();
+
   }
 
   renderTradingViewComponent() {
@@ -112,6 +116,13 @@ export class TradingviewComponent implements OnInit {
 
   }
 
+  ngAfterViewInit() {
+    //this.reloadPage();
 
+  }
+
+  reloadPage() {
+    window.location.reload();
+  }
 
 }

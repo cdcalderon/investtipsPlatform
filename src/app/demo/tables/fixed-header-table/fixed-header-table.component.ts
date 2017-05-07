@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { routeAnimation } from "../../../route.animation";
+import {MenuItem, Message} from "primeng/primeng";
 declare let ResizeSensor;
 
 @Component({
@@ -12,6 +13,10 @@ declare let ResizeSensor;
   animations: [ routeAnimation ]
 })
 export class FixedHeaderTableComponent implements OnInit, AfterViewInit {
+
+  msgs: Message[] = [];
+
+  items: MenuItem[];
 
   rows;
 
@@ -46,6 +51,18 @@ export class FixedHeaderTableComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+
+    this.items = [
+      {label: 'Update', icon: 'fa-refresh', command: () => {
+        this.update();
+      }},
+      {label: 'Delete', icon: 'fa-close', command: () => {
+        this.delete();
+      }},
+      {label: 'Angular.io', icon: 'fa-link', url: 'http://angular.io'},
+      {label: 'Theming', icon: 'fa-paint-brush', routerLink: ['/theming']}
+    ];
+
 
     this.rows = [
       {
@@ -610,6 +627,21 @@ export class FixedHeaderTableComponent implements OnInit, AfterViewInit {
         "balance": "$2,976.61"
       }
     ];
+  }
+
+  save() {
+    this.msgs = [];
+    this.msgs.push({severity:'info', summary:'Success', detail:'Data Saved'});
+  }
+
+  update() {
+    this.msgs = [];
+    this.msgs.push({severity:'info', summary:'Success', detail:'Data Updated'});
+  }
+
+  delete() {
+    this.msgs = [];
+    this.msgs.push({severity:'info', summary:'Success', detail:'Data Deleted'});
   }
 
 }

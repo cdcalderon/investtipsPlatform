@@ -35,7 +35,6 @@ export class StockQuoteComponent implements OnInit, AfterViewInit {
   ]];
 
   options: Object;
-
   constructor(private http: Http,
               private _stockQuotesService: StockQuotesService,
               private _route: ActivatedRoute,
@@ -44,6 +43,8 @@ export class StockQuoteComponent implements OnInit, AfterViewInit {
   }
   ngOnInit() {
     this.getQuotes('2015-12-01', '2016-12-31', 'AAPL');
+
+
     //this.renderTradingViewComponent();
     //this.stockQuotes = this._route.snapshot.data['stockQuotes'];
 
