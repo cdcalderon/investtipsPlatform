@@ -4,6 +4,8 @@ import {
   lineChartDemoDataGenerator, serverLoadDemoData, recentSalesDemoDataGenerator, pieChartDemoData, trafficSourcesDemoData
 } from "../data/widgetDemoData.data";
 import {fadeInAnimation} from "../../route.animation";
+import { ActivatedRoute, Router } from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'ms-dashboard',
@@ -26,9 +28,18 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   recentSalesDemoData;
   trafficSourcesDemoData;
 
-  constructor() { }
+  constructor(private _router: Router, private location: Location) { }
+
+
+  goToChart () {
+    window.location.href = 'http://localhost:4200/stockquote/aapl';
+    // this.location.go('www.google.com');
+   // this._router.navigate(['/stockquote/aapl']);
+  }
 
   ngOnInit() {
+
+
 
     this.discreteBarDemoData = discreteBarDemoDataGenerator();
     this.lineChartDemoData = lineChartDemoDataGenerator();

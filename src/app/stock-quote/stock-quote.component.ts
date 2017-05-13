@@ -42,6 +42,8 @@ export class StockQuoteComponent implements OnInit, AfterViewInit {
 
   }
   ngOnInit() {
+    let id = this._route.snapshot.params['id'];
+
     this.getQuotes('2015-12-01', '2016-12-31', 'AAPL');
 
 

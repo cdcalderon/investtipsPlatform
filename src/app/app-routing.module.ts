@@ -31,6 +31,7 @@ import {ChatComponent} from "./demo/apps/chat/chat.component";
 import {AutocompleteComponent} from "./demo/components/autocomplete/autocomplete.component";
 import {StockQuoteComponent} from "./stock-quote/stock-quote.component";
 import { StockQuoteResolver } from './stock-quote/shared/stock-quote-resolver.service';
+import {StockSignalsComponent} from "./signals/stock-signals-component";
 
 const routes: Routes = [
   {
@@ -58,7 +59,11 @@ const routes: Routes = [
         component: DashboardComponent,
       },
       {
-        path: 'stockquote',
+        path: 'stocksignals',
+        component: StockSignalsComponent
+      },
+      {
+        path: 'stockquote/:id',
         component: StockQuoteComponent,
         //: {stockQuotes: StockQuoteResolver}
       },

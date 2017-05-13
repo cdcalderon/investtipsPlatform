@@ -20,7 +20,7 @@ export class SidenavService {
     let menu = this;
 
     let dashboard = menu.addItem('Dashboard', 'dashboard', '/', 1);
-
+    menu.addItem('StockSignal', 'chat', '/stocksignals', 2);
     menu.addItem('StockQuote', 'chat', '/stockquote', 3);
 
     menu.addItem('Inbox', 'mail', '/apps/inbox', 1, '22', '#7986CC');

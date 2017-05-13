@@ -88,6 +88,8 @@ import { StockQuoteResolver } from './stock-quote/shared/stock-quote-resolver.se
 import { TradingviewComponent } from './tradingview/tradingview.component';
 import { ChildComponent } from './child/child.component';
 import {TradingViewService} from "./tradingview/services/tradingview";
+import {StockSignalsComponent} from './signals/stock-signals-component';
+import { StockSignalsService } from './signals/stock-signals-service';
 
 const perfectScrollbarConfig: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -152,7 +154,8 @@ const sortablejsConfig: SortablejsOptions = {
     AutocompleteComponent,
     StockQuoteComponent,
     TradingviewComponent,
-    ChildComponent
+    ChildComponent,
+    StockSignalsComponent
 
   ],
   entryComponents: [
@@ -191,7 +194,8 @@ const sortablejsConfig: SortablejsOptions = {
     MailService,
     StockQuotesService,
     StockQuoteResolver,
-    TradingViewService
+    TradingViewService,
+    StockSignalsService
   ],
   bootstrap: [AppComponent]
 })
