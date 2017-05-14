@@ -13,6 +13,7 @@ export class StockSignalsComponent implements OnInit {
   errorMessage: string;
   stockSignals: IStockSignal[];
   selectedSignal: IStockSignal;
+  groupedSignals: any;
 
   constructor(private _stockSignalsService: StockSignalsService) {
 
@@ -25,6 +26,9 @@ export class StockSignalsComponent implements OnInit {
         .subscribe(
           stockSignals => {
                 this.stockSignals = stockSignals;
+            this.groupedSignals =
+              this._stockSignalsService.getGroupedSignalsBySymbol(this.stockSignals);
+            console.log(this.groupedSignals);
             },
             error => this.errorMessage = <any>error
         );

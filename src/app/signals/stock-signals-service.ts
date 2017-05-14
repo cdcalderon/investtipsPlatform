@@ -28,6 +28,17 @@ export class StockSignalsService {
       .catch(this.handleError);
   }
 
+  getGroupedSignalsBySymbol(stockSignals: IStockSignal[]) {
+    return _(stockSignals)
+      .groupBy(x => x.symbol)
+      .map((value, key) => ({
+        symbol: key,
+        quantity: value.length,
+        signals: value
+      }))
+      .value();
+  }
+
   private handleError(error: Response) {
     console.error(error);
     return Observable.throw(error.json().error || 'Server Error');
