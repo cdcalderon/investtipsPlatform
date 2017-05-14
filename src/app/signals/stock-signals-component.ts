@@ -11,27 +11,30 @@ import {IStockSignal} from "./IStockSignal";
 })
 export class StockSignalsComponent implements OnInit {
   errorMessage: string;
-  stockQuotes: any;
+  stockSignals: IStockSignal[];
+  selectedSignal: IStockSignal;
 
-  constructor(private http: Http,
-              private _stockSignalsService: StockSignalsService,
-              private _route: ActivatedRoute) {
+  constructor(private _stockSignalsService: StockSignalsService) {
 
   }
+
   ngOnInit() {
     let from = '01/01/16';
     let to = '01/01/17';
-
     this._stockSignalsService.getStockSignals(from, to, 'aapl')
         .subscribe(
-            stockQuotes => {
-                this.stockQuotes = stockQuotes;
+          stockSignals => {
+                this.stockSignals = stockSignals;
             },
             error => this.errorMessage = <any>error
         );
 
   }
 
+  onSignalSelect(event){
+
+    console.log(event.data);
+  }
 }
 
 

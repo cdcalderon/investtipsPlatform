@@ -9,8 +9,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import {SplitButtonModule} from 'primeng/primeng';
-import {GrowlModule} from 'primeng/primeng';
+import {DataTableModule,SharedModule, GrowlModule, SplitButtonModule} from 'primeng/primeng';
 
 
 import { AppComponent } from './app.component';
@@ -183,7 +182,9 @@ const sortablejsConfig: SortablejsOptions = {
     CalendarModule.forRoot(),
     Ng2HighchartsModule,
     SplitButtonModule,
-    GrowlModule
+    GrowlModule,
+    DataTableModule,
+    SharedModule
   ],
   providers: [
     SidenavService,
