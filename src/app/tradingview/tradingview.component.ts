@@ -1,4 +1,4 @@
-import {Component, OnInit, AfterViewInit} from '@angular/core';
+import {Component, OnInit, AfterViewInit, Input} from '@angular/core';
 import {TradingViewService} from "./services/tradingview";
 
 declare var TradingView: any;
@@ -10,23 +10,22 @@ declare var Datafeeds: any;
   styleUrls: ['./tradingview.component.scss']
 })
 export class TradingviewComponent implements OnInit, AfterViewInit{
+  @Input() symbol:string;
   constructor(private TradingViewService: TradingViewService) {}
 
   ngOnInit() {
-   // this.renderTradingViewComponent();
-
     this.renderTradingViewComponent();
-
   }
 
   renderTradingViewComponent() {
-    TradingView.onready(function()
-    {
+    //alert(`carlos : ${this.symbol}`);
+    // TradingView.onready(function()
+    // {
       var udf_datafeed = new Datafeeds.UDFCompatibleDatafeed("http://localhost:4000");
 
       let widget = new TradingView.widget({
         fullscreen: true,
-        symbol: 'AMZN',
+        symbol: this.symbol,
         interval: 'D',
         toolbar_bg: '#f4f7f9',
         container_id: "tv_chart_container",
@@ -112,17 +111,18 @@ export class TradingviewComponent implements OnInit, AfterViewInit{
       }); // end of widget.onChartReady
 
 
-    }); // end of TradingView.onready
+    // }); // end of TradingView.onready
 
   }
 
   ngAfterViewInit() {
     //this.reloadPage();
-
+    //this.renderTradingViewComponent();
   }
 
   reloadPage() {
     window.location.reload();
   }
+
 
 }

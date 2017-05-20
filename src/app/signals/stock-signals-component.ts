@@ -1,7 +1,10 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
+import {
+  Component, OnInit, AfterViewInit, ViewChild, ViewContainerRef, ComponentFactoryResolver,
+  Input
+} from '@angular/core';
 import {Http} from '@angular/http';
 import { StockSignalsService } from './stock-signals-service';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {IStockSignal} from "./IStockSignal";
 
 @Component({
@@ -15,7 +18,9 @@ export class StockSignalsComponent implements OnInit {
   selectedSignal: IStockSignal;
   groupedSignals: any;
 
-  constructor(private _stockSignalsService: StockSignalsService) {
+
+  constructor(private _stockSignalsService: StockSignalsService,
+              private _router: Router) {
 
   }
 
@@ -36,8 +41,13 @@ export class StockSignalsComponent implements OnInit {
   }
 
   onSignalSelect(event){
-
     console.log(event.data);
+  }
+
+  navigateToChart(signal:any) {
+    console.log(signal.symbol);
+    this._router.navigate(['/stockquote', signal.symbol]);
+    //window.location.href = `http://localhost:4200/stockquote/${signal.symbol}`;
   }
 }
 

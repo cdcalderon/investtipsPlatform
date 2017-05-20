@@ -1,4 +1,7 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
+import {
+  Component, OnInit, AfterViewInit, ViewChild, ViewContainerRef, ComponentFactoryResolver,
+  Input
+} from '@angular/core';
 import {Http} from '@angular/http';
 import { StockQuotesService} from './stock-quote.service';
 import { ActivatedRoute } from '@angular/router';
@@ -25,6 +28,8 @@ export class StockQuoteComponent implements OnInit, AfterViewInit {
   fromDate: string;
   toDate: string;
   stockSymbol: string;
+  selectedNavSymbol: string;
+
 
   groupingUnits = [[
     'week',                         // unit name
@@ -44,6 +49,7 @@ export class StockQuoteComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     let id = this._route.snapshot.params['id'];
 
+    this.selectedNavSymbol = id;
     this.getQuotes('2015-12-01', '2016-12-31', 'AAPL');
 
 
