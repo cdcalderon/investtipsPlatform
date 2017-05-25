@@ -10,7 +10,8 @@ declare var Datafeeds: any;
   styleUrls: ['./tradingview.component.scss']
 })
 export class TradingviewComponent implements OnInit, AfterViewInit{
-  @Input() symbol:string;
+  @Input() symbol: string;
+  @Input() marksType: string;
   constructor(private TradingViewService: TradingViewService) {}
 
   ngOnInit() {
@@ -21,7 +22,7 @@ export class TradingviewComponent implements OnInit, AfterViewInit{
     //alert(`carlos : ${this.symbol}`);
     // TradingView.onready(function()
     // {
-      var udf_datafeed = new Datafeeds.UDFCompatibleDatafeed("http://localhost:4000");
+      var udf_datafeed = new Datafeeds.UDFCompatibleDatafeed("http://localhost:4000", null, this.marksType);
 
       let widget = new TradingView.widget({
         fullscreen: true,

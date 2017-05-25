@@ -20,6 +20,7 @@ export class SidenavService {
     let menu = this;
 
     let dashboard = menu.addItem('Dashboard', 'dashboard', '/', 1);
+    menu.addItem('GapSignal', 'chat', '/gapsignals', 2);
     menu.addItem('StockSignal', 'chat', '/stocksignals', 2);
     menu.addItem('StockQuote', 'chat', '/stockquote', 3);
 

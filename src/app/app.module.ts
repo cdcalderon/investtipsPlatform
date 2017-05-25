@@ -83,12 +83,19 @@ import { Ng2HighchartsModule } from 'ng2-highcharts';
 import { StockQuoteComponent } from './stock-quote/stock-quote.component';
 import { StockQuotesService } from './stock-quote/stock-quote.service';
 
+
+
 import { StockQuoteResolver } from './stock-quote/shared/stock-quote-resolver.service';
 import { TradingviewComponent } from './tradingview/tradingview.component';
 import { ChildComponent } from './child/child.component';
 import {TradingViewService} from "./tradingview/services/tradingview";
 import {StockSignalsComponent} from './signals/stock-signals-component';
 import { StockSignalsService } from './signals/stock-signals-service';
+
+
+import { GapSignalsService } from './signals/gap-signals/gap-signals-service';
+import { GapSignalsComponent } from './signals/gap-signals/gap-signals-component';
+
 
 const perfectScrollbarConfig: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -154,7 +161,8 @@ const sortablejsConfig: SortablejsOptions = {
     StockQuoteComponent,
     TradingviewComponent,
     ChildComponent,
-    StockSignalsComponent
+    StockSignalsComponent,
+    GapSignalsComponent
 
   ],
   entryComponents: [
@@ -196,7 +204,8 @@ const sortablejsConfig: SortablejsOptions = {
     StockQuotesService,
     StockQuoteResolver,
     TradingViewService,
-    StockSignalsService
+    StockSignalsService,
+    GapSignalsService
   ],
   bootstrap: [AppComponent]
 })

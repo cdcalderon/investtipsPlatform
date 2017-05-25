@@ -8,7 +8,7 @@
 
 var Datafeeds = {};
 
-Datafeeds.UDFCompatibleDatafeed = function(datafeedURL, updateFrequency) {
+Datafeeds.UDFCompatibleDatafeed = function(datafeedURL, updateFrequency, stockMarksType) {
   this._datafeedURL = datafeedURL;
   this._configuration = undefined;
 
@@ -20,6 +20,7 @@ Datafeeds.UDFCompatibleDatafeed = function(datafeedURL, updateFrequency) {
   this._enableLogging = false;
   this._initializationFinished = false;
   this._callbacks = {};
+  this.stockMarksType = stockMarksType;
 
   this._initialize();
 };
@@ -161,7 +162,17 @@ Datafeeds.UDFCompatibleDatafeed.prototype._setupWithConfiguration = function(con
 
 Datafeeds.UDFCompatibleDatafeed.prototype.getMarks = function(symbolInfo, rangeStart, rangeEnd, onDataCallback, resolution) {
   if (this._configuration.supports_marks) {
-    this._send(this._datafeedURL + '/marks', {
+    var marksEndPoint = 'marks';
+
+    if(this.stockMarksType === 'gap'){
+      marksEndPoint = 'marksgaps';
+    } else if(this.stockMarksType === 'greenarrows'){
+      marksEndPoint = 'marksgreenarrows';
+    } else {
+      marksEndPoint = 'marks';
+    }
+
+    this._send(this._datafeedURL + '/' + marksEndPoint, {
       symbol: symbolInfo.ticker.toUpperCase(),
       from: rangeStart,
       to: rangeEnd,

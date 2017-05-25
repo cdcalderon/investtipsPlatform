@@ -32,6 +32,7 @@ import {AutocompleteComponent} from "./demo/components/autocomplete/autocomplete
 import {StockQuoteComponent} from "./stock-quote/stock-quote.component";
 import { StockQuoteResolver } from './stock-quote/shared/stock-quote-resolver.service';
 import {StockSignalsComponent} from "./signals/stock-signals-component";
+import {GapSignalsComponent} from "./signals/gap-signals/gap-signals-component";
 
 const routes: Routes = [
   {
@@ -61,6 +62,10 @@ const routes: Routes = [
       {
         path: 'stocksignals',
         component: StockSignalsComponent
+      },
+      {
+        path: 'gapsignals',
+        component: GapSignalsComponent
       },
       {
         path: 'stockquote/:id',
