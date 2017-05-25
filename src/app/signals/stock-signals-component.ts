@@ -17,6 +17,7 @@ export class StockSignalsComponent implements OnInit {
   stockSignals: IStockSignal[];
   selectedSignal: IStockSignal;
   groupedSignals: any;
+  marksType: string = 'gap';
 
 
   constructor(private _stockSignalsService: StockSignalsService,
@@ -46,7 +47,7 @@ export class StockSignalsComponent implements OnInit {
 
   navigateToChart(signal:any) {
     console.log(signal.symbol);
-    this._router.navigate(['/stockquote', signal.symbol]);
+    this._router.navigate(['/stockquote', signal.symbol, 'greenarrows']);
     //window.location.href = `http://localhost:4200/stockquote/${signal.symbol}`;
   }
 }

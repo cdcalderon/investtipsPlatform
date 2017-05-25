@@ -68,7 +68,7 @@ const routes: Routes = [
         component: GapSignalsComponent
       },
       {
-        path: 'stockquote/:id',
+        path: 'stockquote/:id/:marktype',
         component: StockQuoteComponent,
         //: {stockQuotes: StockQuoteResolver}
       },

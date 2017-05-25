@@ -43,7 +43,7 @@ export class GapSignalsComponent implements OnInit {
 
   navigateToChart(signal:any) {
     console.log(signal.symbol);
-    this._router.navigate(['/stockquote', signal.symbol]);
+    this._router.navigate(['/stockquote', signal.symbol, 'gap']);
     //window.location.href = `http://localhost:4200/stockquote/${signal.symbol}`;
   }
 }

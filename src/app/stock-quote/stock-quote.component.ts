@@ -19,6 +19,7 @@ export class StockQuoteComponent implements OnInit, AfterViewInit {
 
   @ViewChild('parent', {read: ViewContainerRef})
   parent: ViewContainerRef;
+  marksType: string;
 
   widget: any;
   flags: any;
@@ -29,7 +30,6 @@ export class StockQuoteComponent implements OnInit, AfterViewInit {
   toDate: string;
   stockSymbol: string;
   selectedNavSymbol: string;
-
 
   groupingUnits = [[
     'week',                         // unit name
@@ -45,10 +45,13 @@ export class StockQuoteComponent implements OnInit, AfterViewInit {
               private _route: ActivatedRoute,
               private componentFactoryResolver: ComponentFactoryResolver) {
 
+
   }
   ngOnInit() {
     let id = this._route.snapshot.params['id'];
+    let marktype = this._route.snapshot.params['marktype'];
 
+    this.marksType = marktype;
     this.selectedNavSymbol = id;
     this.getQuotes('2015-12-01', '2016-12-31', 'AAPL');
 
